@@ -1,0 +1,21 @@
+{
+  "name": "sigma-js-complexes",
+  "version": "1.0.0",
+  "description": "Provides calculation functions related to complex numbers.",
+  "keywords": ["math", "complex", "number", "fast", "check", "is"],
+  "main": "./complexes.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-hama/sigma-js-complexes"
+  },
+  "homepage": "https://github.com/s-hama/sigma-js-complexes",
+  "bugs": {
+    "url": "https://github.com/s-hama/sigma-js-complexes/issues"
+  },
+  "author": "s-hama",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "jest": "^29.6.4"
+  }
+}

@@ -1,8 +1,8 @@
 module.exports = (function () {
   // constructor
-  function Complex(re, im) {
-    this.re = re || 0;
-    this.im = im || 0;
+  function Complex(re = 0, im = 0) {
+    this.re = re;
+    this.im = im;
   }
 
   // Define message.
@@ -12,7 +12,7 @@ module.exports = (function () {
   };
 
   // Get messages.
-  const getMsg = (key, repArr = null) => {
+  Complex.prototype.getMsg = function (key, repArr = null) {
     const msg = msgs[key];
     return repArr
       ? msg.replace(/{(\d+)}/g, (match, i) => {
@@ -24,7 +24,7 @@ module.exports = (function () {
   // Set real.
   Complex.prototype.setRe = function (value) {
     if (typeof value !== "number") {
-      throw new Error(getMsg("errNotNumeric", ["Specified value"]));
+      throw new Error(this.getMsg("errNotNumeric", ["Specified value"]));
     }
     this.re = value;
     return this;
@@ -33,7 +33,7 @@ module.exports = (function () {
   // Set imaginary.
   Complex.prototype.setIm = function (value) {
     if (typeof value !== "number") {
-      throw new Error(getMsg("errNotNumeric", ["Specified value"]));
+      throw new Error(this.getMsg("errNotNumeric", ["Specified value"]));
     }
     this.im = value;
     return this;

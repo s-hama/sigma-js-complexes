@@ -61,9 +61,7 @@ module.exports = (function () {
           "Specified r(radius) value and phi(angle) value",
         ])
       );
-    this.re = r * Math.cos(phi);
-    this.im = r * Math.sin(phi);
-    return this;
+    return this.setRectCoords(r * Math.cos(phi), r * Math.sin(phi));
   };
 
   // Set complex number with specified precision.
@@ -72,9 +70,7 @@ module.exports = (function () {
       throw new Error(
         this.getMsg("errNotNumeric", ["Specified precision value"])
       );
-    this.re = this.re.toPrecision(prec);
-    this.im = this.im.toPrecision(prec);
-    return this;
+    return this.setRectCoords(Number(this.re.toPrecision(prec)), Number(this.im.toPrecision(prec)));
   };
 
   return Complex;

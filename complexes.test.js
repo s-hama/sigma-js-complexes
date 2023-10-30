@@ -66,4 +66,29 @@ describe("Complex functions", () => {
       );
     });
   });
+  describe("setPolarCoords", () => {
+    beforeEach(() => {
+      complex = new Complex();
+    });
+    it("should set complex number from polar coordinates", () => {
+      // check if 45 degree polar coordinates are converted to rectangular coordinates
+      complex.setPolarCoords(1, Math.PI / 4);
+      expect(complex.re).toBeCloseTo(Math.sqrt(2) / 2);
+      expect(complex.im).toBeCloseTo(Math.sqrt(2) / 2);
+    });
+    it("should throw an error for non-numeric input", () => {
+      // Specified r(radius) value and phi(angle) value must be a number.
+      expect(() => complex.setPolarCoords("invalid", 2)).toThrowError(
+        complex.getMsg("errNotNumeric", [
+          "Specified r(radius) value and phi(angle) value",
+        ])
+      );
+      // Specified r(radius) value and phi(angle) value must be a number.
+      expect(() => complex.setPolarCoords(1, "invalid")).toThrowError(
+        complex.getMsg("errNotNumeric", [
+          "Specified r(radius) value and phi(angle) value",
+        ])
+      );
+    });
+  });
 });

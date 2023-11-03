@@ -10,48 +10,6 @@ Install with [npm](https://www.npmjs.com/):
 ```sh
 $ npm i @sigma-js/complexes
 ```
-### JavaScript require
-
-```js
-const Complex = require("./complexes.js");
-```
-
-### TypeScript import
-
-```js
-import { Complex } from "@sigma-js/complexes";
-```
-
-### Call example: constructor
-
-```js
-// You can initialize prime numbers in the constructor
-real = 1;
-imaginary = 2;
-complex = new Complex(real, imaginary);
-console.log(complex.re); // Output: 1
-console.log(complex.im); // Output: 2
-```
-
-### Call example: setRectCoords
-
-```js
-// You can complex numbers can be set from rectangular coordinates.
-complex = new Complex();
-complex.setRectCoords(3, 4);
-console.log(complex.re); // Output: 3
-console.log(complex.im); // Output: 4
-```
-
-### Call example: setPolarCoords
-
-```js
-// You can complex numbers can be set from polar coordinates.
-complex = new Complex();
-complex.setPolarCoords(1, Math.PI / 4);
-console.log(complex.re); // Output: Math.sqrt(2) / 2
-console.log(complex.im); // Output: Math.sqrt(2) / 2
-```
 
 ## License
 

@@ -22,46 +22,21 @@ module.exports = (function () {
   };
 
   // Set real.
-  Complex.prototype.setRe = function (re) {
-    if (typeof re !== "number") {
-      throw new Error(this.getMsg("errNotNumeric", ["Specified real value"]));
+  Complex.prototype.setRe = function (value) {
+    if (typeof value !== "number") {
+      throw new Error(this.getMsg("errNotNumeric", ["Specified value"]));
     }
-    this.re = re;
+    this.re = value;
     return this;
   };
 
   // Set imaginary.
-  Complex.prototype.setIm = function (im) {
-    if (typeof im !== "number")
-      throw new Error(
-        this.getMsg("errNotNumeric", ["Specified imaginary value"])
-      );
-    this.im = im;
+  Complex.prototype.setIm = function (value) {
+    if (typeof value !== "number") {
+      throw new Error(this.getMsg("errNotNumeric", ["Specified value"]));
+    }
+    this.im = value;
     return this;
-  };
-
-  // Set complex number from rectangular coordinates.
-  Complex.prototype.setRectCoords = function (re, im) {
-    if (typeof re !== "number" || typeof im !== "number")
-      throw new Error(
-        this.getMsg("errNotNumeric", [
-          "Specified real value and imaginary value",
-        ])
-      );
-    this.re = re;
-    this.im = im;
-    return this;
-  };
-
-  // Set complex number from polar coordinates.
-  Complex.prototype.setPolarCoords = function (r, phi) {
-    if (typeof r !== "number" || typeof phi !== "number")
-      throw new Error(
-        this.getMsg("errNotNumeric", [
-          "Specified r(radius) value and phi(angle) value",
-        ])
-      );
-    return this.setRectCoords(r * Math.cos(phi), r * Math.sin(phi));
   };
 
   return Complex;

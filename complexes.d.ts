@@ -4,8 +4,10 @@ declare module "@sigma-js/complexes" {
     im: number;
     constructor(re?: number, im?: number);
     getMsg(key: string, repArr?: (string | number)[] | null): string;
-    setRe(value: number): this;
-    setIm(value: number): this;
+    setRe(re: number): this;
+    setIm(im: number): this;
+    setRectCoords(re: number, im: number): this;
+    setPolarCoords(r: number, phi: number): this;
   }
   export = Complex;
 }

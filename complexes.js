@@ -64,5 +64,17 @@ module.exports = (function () {
     return this.setRectCoords(r * Math.cos(phi), r * Math.sin(phi));
   };
 
+  // Set complex number with specified precision.
+  Complex.prototype.setPrecision = function (prec) {
+    if (typeof prec !== "number")
+      throw new Error(
+        this.getMsg("errNotNumeric", ["Specified precision value"])
+      );
+    return this.setRectCoords(
+      Number(this.re.toPrecision(prec)),
+      Number(this.im.toPrecision(prec))
+    );
+  };
+
   return Complex;
 })();

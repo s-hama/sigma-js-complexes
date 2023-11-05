@@ -76,5 +76,16 @@ module.exports = (function () {
     );
   };
 
+  // Set complex number with specified digits.
+  Complex.prototype.setFixed = function (digs) {
+    if (typeof digs !== "number") {
+      throw new Error(this.getMsg("errNotNumeric", ["Specified digs value"]));
+    }
+    return this.setRectCoords(
+      Number(this.re.toFixed(digs)),
+      Number(this.im.toFixed(digs))
+    );
+  };
+
   return Complex;
 })();

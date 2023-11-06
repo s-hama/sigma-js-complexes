@@ -107,4 +107,20 @@ describe("Complex functions", () => {
       );
     });
   });
+  describe("setFixed", () => {
+    it("should set complex number with specified digits", () => {
+      const complex = new Complex(3.141592653589793, 2.718281828459045);
+      complex.setFixed(4);
+      // check whether the real and imaginary parts are set to four decimal places
+      expect(complex.re).toBeCloseTo(3.1416);
+      expect(complex.im).toBeCloseTo(2.7183);
+    });
+    it("should throw an error when specifying non-numeric digits", () => {
+      const complex = new Complex();
+      // msg: Specified digs value must be a number.
+      expect(() => complex.setFixed("invalid")).toThrowError(
+        complex.getMsg("errNotNumeric", ["Specified digs value"])
+      );
+    });
+  });
 });

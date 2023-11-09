@@ -53,6 +53,22 @@ console.log(complex.re); // Output: Math.sqrt(2) / 2
 console.log(complex.im); // Output: Math.sqrt(2) / 2
 ```
 
+```js
+// You can set complex numbers with specified precision.
+complex = new Complex();
+complex.setPrecision(1, Math.PI / 4);
+console.log(complex.re); // Output: Math.sqrt(2) / 2
+console.log(complex.im); // Output: Math.sqrt(2) / 2
+```
+
+```js
+// You can set complex numbers with specified digits.
+complex = new Complex(3.141592653589793, 2.718281828459045);
+complex.setFixed(4);
+console.log(complex.re); // Output: 3.1416
+console.log(complex.im); // Output: 2.7183
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

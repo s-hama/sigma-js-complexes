@@ -52,13 +52,13 @@ describe("Complex functions", () => {
       expect(complex.im).toBe(4);
     });
     it("should throw an error for non-numeric arguments", () => {
-      // Specified real value and imaginary value must be a number.
+      // msg: Specified real value and imaginary value must be a number.
       expect(() => complex.setRectCoords("string", 3)).toThrowError(
         complex.getMsg("errNotNumeric", [
           "Specified real value and imaginary value",
         ])
       );
-      // Specified real value and imaginary value must be a number.
+      // msg: Specified real value and imaginary value must be a number.
       expect(() => complex.setRectCoords(1, null)).toThrowError(
         complex.getMsg("errNotNumeric", [
           "Specified real value and imaginary value",
@@ -77,17 +77,49 @@ describe("Complex functions", () => {
       expect(complex.im).toBeCloseTo(Math.sqrt(2) / 2);
     });
     it("should throw an error for non-numeric input", () => {
-      // Specified r(radius) value and phi(angle) value must be a number.
+      // msg: Specified r(radius) value and phi(angle) value must be a number.
       expect(() => complex.setPolarCoords("invalid", 2)).toThrowError(
         complex.getMsg("errNotNumeric", [
           "Specified r(radius) value and phi(angle) value",
         ])
       );
-      // Specified r(radius) value and phi(angle) value must be a number.
+      // msg: Specified r(radius) value and phi(angle) value must be a number.
       expect(() => complex.setPolarCoords(1, "invalid")).toThrowError(
         complex.getMsg("errNotNumeric", [
           "Specified r(radius) value and phi(angle) value",
         ])
+      );
+    });
+  });
+  describe("setPrecision", () => {
+    it("should set precision for the complex number", () => {
+      const complex = new Complex(1.234567, 2.345678);
+      complex.setPrecision(2);
+      // check if the real and imaginary parts are set with 2-digit precision
+      expect(complex.re).toBeCloseTo(1.2);
+      expect(complex.im).toBeCloseTo(2.3);
+    });
+    it("should throw an error for non-numeric input", () => {
+      const complex = new Complex();
+      // msg: Specified precision value must be a number.
+      expect(() => complex.setPrecision("invalid")).toThrowError(
+        complex.getMsg("errNotNumeric", ["Specified precision value"])
+      );
+    });
+  });
+  describe("setFixed", () => {
+    it("should set complex number with specified digits", () => {
+      const complex = new Complex(3.141592653589793, 2.718281828459045);
+      complex.setFixed(4);
+      // check whether the real and imaginary parts are set to four decimal places
+      expect(complex.re).toBeCloseTo(3.1416);
+      expect(complex.im).toBeCloseTo(2.7183);
+    });
+    it("should throw an error when specifying non-numeric digits", () => {
+      const complex = new Complex();
+      // msg: Specified digs value must be a number.
+      expect(() => complex.setFixed("invalid")).toThrowError(
+        complex.getMsg("errNotNumeric", ["Specified digs value"])
       );
     });
   });

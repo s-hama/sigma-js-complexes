@@ -123,4 +123,16 @@ describe("Complex functions", () => {
       );
     });
   });
+  describe("getMagnitude", () => {
+    it("should get the absolute value of a complex number", () => {
+      const complex = new Complex(3, 4);
+      expect(complex.getMagnitude()).toBe(5);
+    });
+  });
+  describe("getAngle", () => {
+    it("should get the argument of a complex number", () => {
+      const complex = new Complex(3, 4);
+      expect(complex.getAngle()).toBeCloseTo(0.93, 2);
+    });
+  });
 });

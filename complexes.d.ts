@@ -10,6 +10,8 @@ declare module "@sigma-js/complexes" {
     setPolarCoords(r: number, phi: number): this;
     setPrecision(prec: number): this;
     setFixed(digs: number): this;
+    getMagnitude(): number;
+    getAngle(): number;
   }
   export = Complex;
 }

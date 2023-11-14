@@ -87,5 +87,15 @@ module.exports = (function () {
     );
   };
 
+  // Get the absolute value of a complex number.
+  Complex.prototype.getMagnitude = function () {
+    return Math.sqrt(this.re * this.re + this.im * this.im);
+  };
+
+  // Get the argument of a complex number.
+  Complex.prototype.getAngle = function () {
+    return Math.atan2(this.im, this.re);
+  };
+
   return Complex;
 })();

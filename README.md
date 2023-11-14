@@ -1,5 +1,4 @@
-# ＠sigma-js/complexes [![NPM version](https://img.shields.io/npm/v/@sigma-js/complexes.svg?style=flat)](https://www.npmjs.com/package/@sigma-js/complexes) [![NPM license](https://img.shields.io/github/license/s-hama/sigma-js-complexes.svg)](https://github.com/s-hama/sigma-js-complexes/blob/master/LICENSE) [![NPM monthly downloads](https://img.shields.io/npm/dm/@sigma-js/complexes.svg?style=flat)](https://npmjs.org/package/@sigma-js/complexes) [![NPM total downloads](https://img.shields.io/npm/dt/@sigma-js/complexes.svg?style=flat)](https://npmjs.org/package/@sigma-js/complexes) 
-
+# ＠sigma-js/complexes [![NPM version](https://img.shields.io/npm/v/@sigma-js/complexes.svg?style=flat)](https://www.npmjs.com/package/@sigma-js/complexes) [![NPM license](https://img.shields.io/github/license/s-hama/sigma-js-complexes.svg)](https://github.com/s-hama/sigma-js-complexes/blob/master/LICENSE) [![NPM monthly downloads](https://img.shields.io/npm/dm/@sigma-js/complexes.svg?style=flat)](https://npmjs.org/package/@sigma-js/complexes) [![NPM total downloads](https://img.shields.io/npm/dt/@sigma-js/complexes.svg?style=flat)](https://npmjs.org/package/@sigma-js/complexes)
 
 **@sigma-js/complexes** is a javascript library that provides trigonometric functions and calculation functions related to trigonometric functions.ｓ
 
@@ -10,6 +9,7 @@ Install with [npm](https://www.npmjs.com/):
 ```sh
 $ npm i @sigma-js/complexes
 ```
+
 ### JavaScript require
 
 ```js
@@ -67,6 +67,18 @@ complex = new Complex(3.141592653589793, 2.718281828459045);
 complex.setFixed(4);
 console.log(complex.re); // Output: 3.1416
 console.log(complex.im); // Output: 2.7183
+```
+
+```js
+// You can get the absolute value of a complex number.
+const complex = new Complex(3, 4);
+complex.getMagnitude(); // Output: 5
+```
+
+```js
+// You can get the argument of a complex number.
+  const complex = new Complex(3, 4);
+complex.getAngle(); // Output: 0.92729...
 ```
 
 ## License

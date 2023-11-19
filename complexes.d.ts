@@ -12,8 +12,8 @@ declare module "@sigma-js/complexes" {
     setFixed(digs: number): this;
     getMagnitude(): number;
     getAngle(): number;
-    getConjugate(): number;
-    getNegate(): number;
+	  getConjugate(): Complex;
+    getNegate(): Complex;
   }
   export = Complex;
 }

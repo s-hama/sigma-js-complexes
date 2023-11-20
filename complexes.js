@@ -97,5 +97,15 @@ module.exports = (function () {
     return Math.atan2(this.im, this.re);
   };
 
+  // Get the conjugate of a complex number.
+  Complex.prototype.getConjugate = function () {
+    return new Complex(this.re, -this.im);
+  };
+
+  // Get the negation of a complex number.
+  Complex.prototype.getNegate = function () {
+    return new Complex(-this.re, -this.im);
+  };
+
   return Complex;
 })();

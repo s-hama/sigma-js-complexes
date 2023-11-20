@@ -81,6 +81,22 @@ complex.getMagnitude(); // Output: 5
 complex.getAngle(); // Output: 0.92729...
 ```
 
+```js
+// You can get the conjugate value of a complex number.
+const complex = new Complex(3, 4);
+const conjugate = complex.getConjugate();
+conjugate.re; // Output: 3
+conjugate.im; // Output: -4
+```
+
+```js
+// You can get the negation of a complex number.
+const complex = new Complex(3, 4);
+const negate = complex.getNegate();
+conjugate.re; // Output: -3
+conjugate.im; // Output: -4
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

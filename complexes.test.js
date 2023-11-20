@@ -135,4 +135,20 @@ describe("Complex functions", () => {
       expect(complex.getAngle()).toBeCloseTo(0.93, 2);
     });
   });
+  describe("getConjugate", () => {
+    it("should get the conjugate value of a complex number", () => {
+      const complex = new Complex(3, 4);
+      const conjugate = complex.getConjugate();
+      expect(conjugate.re).toBe(3);
+      expect(conjugate.im).toBe(-4);
+    });
+  });
+  describe("getNegate", () => {
+    it("should get the negation of a complex number", () => {
+      const complex = new Complex(3, 4);
+      const negate = complex.getNegate();
+      expect(negate.re).toBe(-3);
+      expect(negate.im).toBe(-4);
+    });
+  });
 });

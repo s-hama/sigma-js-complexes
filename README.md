@@ -53,6 +53,8 @@ console.log(complex.re); // Output: Math.sqrt(2) / 2
 console.log(complex.im); // Output: Math.sqrt(2) / 2
 ```
 
+### Call example: setPrecision
+
 ```js
 // You can set complex numbers with specified precision.
 complex = new Complex();
@@ -60,6 +62,8 @@ complex.setPrecision(1, Math.PI / 4);
 console.log(complex.re); // Output: Math.sqrt(2) / 2
 console.log(complex.im); // Output: Math.sqrt(2) / 2
 ```
+
+### Call example: setFixed
 
 ```js
 // You can set complex numbers with specified digits.
@@ -69,17 +73,23 @@ console.log(complex.re); // Output: 3.1416
 console.log(complex.im); // Output: 2.7183
 ```
 
+### Call example: getMagnitude
+
 ```js
 // You can get the absolute value of a complex number.
 const complex = new Complex(3, 4);
 complex.getMagnitude(); // Output: 5
 ```
 
+### Call example: getAngle
+
 ```js
 // You can get the argument of a complex number.
   const complex = new Complex(3, 4);
 complex.getAngle(); // Output: 0.92729...
 ```
+
+### Call example: getConjugate
 
 ```js
 // You can get the conjugate value of a complex number.
@@ -88,6 +98,8 @@ const conjugate = complex.getConjugate();
 conjugate.re; // Output: 3
 conjugate.im; // Output: -4
 ```
+
+### Call example: getNegate
 
 ```js
 // You can get the negation of a complex number.

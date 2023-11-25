@@ -107,5 +107,17 @@ module.exports = (function () {
     return new Complex(-this.re, -this.im);
   };
 
+  // Modification of the current instance is prohibited and a new instance is always returned if one is needed.
+  Complex.prototype.finalize = function () {
+    this.setRectCoords = function (a, b) {
+      return new Complex(a, b);
+    };
+    if (Object.defineProperty) {
+      Object.defineProperty(this, "re", { writable: false, value: this.re });
+      Object.defineProperty(this, "im", { writable: false, value: this.im });
+    }
+    return this;
+  };
+
   return Complex;
 })();

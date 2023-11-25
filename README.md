@@ -109,6 +109,21 @@ conjugate.re; // Output: -3
 conjugate.im; // Output: -4
 ```
 
+### Call example: finalize
+
+```js
+// You can modification of the current instance is prohibited and a new instance is always returned if one is needed.
+const complex = new Complex(2, 3);
+const finalizedComplex = complex.finalize();
+const newComplex = finalizedComplex.setRectCoords(4, 5);
+console.log(newComplex); // Output: Complex { re: 4, im: 5 }
+
+const reDescriptor = Object.getOwnPropertyDescriptor(finalizedComplex, "re");
+const imDescriptor = Object.getOwnPropertyDescriptor(finalizedComplex, "im");
+console.log(reDescriptor.writable); // Output: false
+console.log(imDescriptor.writable); // Output: false
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

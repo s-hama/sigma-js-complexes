@@ -151,4 +151,19 @@ describe("Complex functions", () => {
       expect(negate.im).toBe(-4);
     });
   });
+  describe("finalize", () => {
+    it("should setRectCoords returns new Complex instance", () => {
+      const complex = new Complex(2, 3);
+      const finalizedComplex = complex.finalize();
+      // Check if calling setRectCoords after calling finalize method returns a new instance
+      const newComplex = finalizedComplex.setRectCoords(4, 5);
+      expect(newComplex).toBeInstanceOf(Complex);
+      expect(newComplex).not.toBe(finalizedComplex);
+      // re, im Ensure that the property is write-protected
+      const reDescriptor = Object.getOwnPropertyDescriptor(finalizedComplex, "re");
+      const imDescriptor = Object.getOwnPropertyDescriptor(finalizedComplex, "im");
+      expect(reDescriptor.writable).toBe(false);
+      expect(imDescriptor.writable).toBe(false);
+    });
+  });
 });

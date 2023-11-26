@@ -87,6 +87,23 @@ module.exports = (function () {
     );
   };
 
+  // Set the complex number according to the specified value.
+  Complex.prototype.setFromValue = function (value) {
+    if (value instanceof Complex) return new Complex(value.re, value.im);
+    if (typeof value === "string") {
+      if (value === "i") value = "0+1i";
+      var match = value.match(/(\d+)?([\+\-]\d*)[ij]/);
+      if (match) {
+        var re = match[1];
+        var im =
+          match[2] === "+" || match[2] === "-" ? match[2] + "1" : match[2];
+        return new Complex(+re || 0, +im || 0);
+      }
+    }
+    if (typeof value === "number") return new Complex(value, 0);
+    throw new Error(this.getMsg("errTypeInvalid", ["Specified value"]));
+  };
+
   // Get the absolute value of a complex number.
   Complex.prototype.getMagnitude = function () {
     return Math.sqrt(this.re * this.re + this.im * this.im);

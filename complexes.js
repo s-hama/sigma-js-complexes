@@ -9,6 +9,8 @@ module.exports = (function () {
   const msgs = {
     // replace: {0}: Specified value
     errNotNumeric: "{0} must be a number.",
+    // replace: {0}: Specified value
+    errTypeInvalid: "The type of the {0} is invalid.",
   };
 
   // Get messages.

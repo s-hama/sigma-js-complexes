@@ -166,4 +166,32 @@ describe("Complex functions", () => {
       expect(imDescriptor.writable).toBe(false);
     });
   });
+  describe("setFromValue", () => {
+    test("should set the complex number from a Complex instance", () => {
+      const inputComplex = new Complex(2, 4);
+      const beforeComplex = new Complex();
+      const afterComplex = beforeComplex.setFromValue(inputComplex);
+      expect(afterComplex.re).toBe(2);
+      expect(afterComplex.im).toBe(4);
+    });
+    test("should set the complex number from a string", () => {
+      const beforeComplex = new Complex();
+      const afterComplex = beforeComplex.setFromValue("3+2i");
+      expect(afterComplex.re).toBe(3);
+      expect(afterComplex.im).toBe(2);
+    });
+    test("should set the complex number from a number", () => {
+      const beforeComplex = new Complex();
+      const afterComplex = beforeComplex.setFromValue(5);
+      expect(afterComplex.re).toBe(5);
+      expect(afterComplex.im).toBe(0);
+    });
+    test("should throw an error if the specified value is of an invalid type", () => {
+      const complex = new Complex();
+      // msg: The type of the Specified value is invalid.
+      expect(() => complex.setFromValue(true)).toThrowError(
+        complex.getMsg("errTypeInvalid", ["Specified value"])
+      );
+    });
+  });
 });

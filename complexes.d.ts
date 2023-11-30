@@ -10,10 +10,11 @@ declare module "@sigma-js/complexes" {
     setPolarCoords(r: number, phi: number): this;
     setPrecision(prec: number): this;
     setFixed(digs: number): this;
+    setFromValue(value: Complex | string | number): this;
     getMagnitude(): number;
     getAngle(): number;
-	  getConjugate(): Complex;
-    getNegate(): Complex;
+	  getConjugate(): this;
+    getNegate(): this;
     finalize(): this;
   }
   export = Complex;

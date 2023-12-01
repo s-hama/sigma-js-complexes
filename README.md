@@ -73,6 +73,21 @@ console.log(complex.re); // Output: 3.1416
 console.log(complex.im); // Output: 2.7183
 ```
 
+### Call example: setFromValue
+
+```js
+// You can get the complex number according to the specified value.
+const inputComplex = new Complex(2, 4);
+const beforeComplex = new Complex();
+let retComplex = beforeComplex.setFromValue(inputComplex);
+retComplex.re; // Output: 2
+retComplex.im; // Output: 4
+
+retComplex = beforeComplex.setFromValue("3+2i");
+retComplex.re; // Output: 3
+retComplex.im; // Output: 2
+```
+
 ### Call example: getMagnitude
 
 ```js

@@ -138,5 +138,24 @@ module.exports = (function () {
     return this;
   };
 
+  // Set the result of multiplying the specified value by a complex number.
+  Complex.prototype.setMultiply = function (value) {
+    const cpx = this.setFromValue(value);
+    return this.setRectCoords(
+      this.re * cpx.re - this.im * cpx.im,
+      this.im * cpx.re + this.re * cpx.im
+    );
+  };
+
+  // Set the result of dividing the specified value by a complex number.
+  Complex.prototype.setDivide = function (value) {
+    const cpx = this.setFromValue(value);
+    const div = Math.pow(cpx.re, 2) + Math.pow(cpx.im, 2);
+    return this.setRectCoords(
+      (this.re * cpx.re + this.im * cpx.im) / div,
+      (this.im * cpx.re - this.re * cpx.im) / div
+    );
+  };
+
   return Complex;
 })();

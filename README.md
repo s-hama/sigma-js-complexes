@@ -104,22 +104,22 @@ complex.getMagnitude(); // Output: 5
 complex.getAngle(); // Output: 0.92729...
 ```
 
-### Call example: getConjugate
+### Call example: setConjugate
 
 ```js
 // You can get the conjugate value of a complex number.
 const complex = new Complex(3, 4);
-const conjugate = complex.getConjugate();
+const conjugate = complex.setConjugate();
 conjugate.re; // Output: 3
 conjugate.im; // Output: -4
 ```
 
-### Call example: getNegate
+### Call example: setNegate
 
 ```js
 // You can get the negation of a complex number.
 const complex = new Complex(3, 4);
-const negate = complex.getNegate();
+const negate = complex.setNegate();
 conjugate.re; // Output: -3
 conjugate.im; // Output: -4
 ```

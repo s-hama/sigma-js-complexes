@@ -116,14 +116,14 @@ module.exports = (function () {
     return Math.atan2(this.im, this.re);
   };
 
-  // Get the conjugate of a complex number.
-  Complex.prototype.getConjugate = function () {
-    return new Complex(this.re, -this.im);
+  // Set the conjugate of a complex number.
+  Complex.prototype.setConjugate = function () {
+    return this.setRectCoords(this.re, -this.im);
   };
 
-  // Get the negation of a complex number.
-  Complex.prototype.getNegate = function () {
-    return new Complex(-this.re, -this.im);
+  // Set the negation of a complex number.
+  Complex.prototype.setNegate = function () {
+    return this.setRectCoords(-this.re, -this.im);
   };
 
   // Modification of the current instance is prohibited and a new instance is always returned if one is needed.

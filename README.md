@@ -139,6 +139,44 @@ console.log(reDescriptor.writable); // Output: false
 console.log(imDescriptor.writable); // Output: false
 ```
 
+### Call example: setMultiply
+
+```js
+// You can set the result of multiplying the specified value by a complex number.
+// When specified numerically
+const beforeComplex = new Complex(2, 3);
+const afterComplex = beforeComplex.setMultiply(3);
+// (2 + 3i) * 3 = 6 + 9i
+console.log(afterComplex.re); // Output: 6
+console.log(afterComplex.im); // Output: 9
+
+// When specified as a string
+const beforeComplex = new Complex(2, 3);
+const afterComplex = beforeComplex.setMultiply("2+4i");
+// (2 + 3i) * (2 + 4i) = -8 + 14i
+console.log(afterComplex.re); // Output: -8
+console.log(afterComplex.im); // Output: 14
+```
+
+### Call example: setDivide
+
+```js
+// You can set the result of dividing the specified value by a complex number.
+// When specified numerically
+const beforeComplex = new Complex(6, 9);
+const afterComplex = beforeComplex.setDivide(3);
+// (6 + 9i) / 3 = 2 + 3i
+console.log(afterComplex.re); // Output: 2
+console.log(afterComplex.im); // Output: 3
+
+// When specified as a string
+const beforeComplex = new Complex(6, 9);
+const afterComplex = beforeComplex.setDivide("2-4i");
+// (6 + 9i) / (2 - 4i) = -1.2 + 2.1i
+console.log(afterComplex.re); // Output: -2.1
+console.log(afterComplex.im); // Output: 2.1
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

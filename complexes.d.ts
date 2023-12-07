@@ -13,9 +13,11 @@ declare module "@sigma-js/complexes" {
     setFromValue(value: Complex | string | number): this;
     getMagnitude(): number;
     getAngle(): number;
-	  getConjugate(): this;
+    getConjugate(): this;
     getNegate(): this;
     finalize(): this;
+    setMultiply(value: number | string | Complex): this;
+    setDivide(value: number | string | Complex): this;
   }
   export = Complex;
 }

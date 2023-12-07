@@ -135,18 +135,18 @@ describe("Complex functions", () => {
       expect(complex.getAngle()).toBeCloseTo(0.93, 2);
     });
   });
-  describe("getConjugate", () => {
+  describe("setConjugate", () => {
     it("should get the conjugate value of a complex number", () => {
       const complex = new Complex(3, 4);
-      const conjugate = complex.getConjugate();
+      const conjugate = complex.setConjugate();
       expect(conjugate.re).toBe(3);
       expect(conjugate.im).toBe(-4);
     });
   });
-  describe("getNegate", () => {
+  describe("setNegate", () => {
     it("should get the negation of a complex number", () => {
       const complex = new Complex(3, 4);
-      const negate = complex.getNegate();
+      const negate = complex.setNegate();
       expect(negate.re).toBe(-3);
       expect(negate.im).toBe(-4);
     });
@@ -192,6 +192,38 @@ describe("Complex functions", () => {
       expect(() => complex.setFromValue(true)).toThrowError(
         complex.getMsg("errTypeInvalid", ["Specified value"])
       );
+    });
+  });
+  describe("setMultiply", () => {
+    it("should set the result of multiplying the specified value by a complex (test with a numeric value)", () => {
+      // (2 + 3i) * 3 = 6 + 9i
+      const beforeComplex = new Complex(2, 3);
+      const afterComplex = beforeComplex.setMultiply(3);
+      expect(afterComplex.re).toBe(6);
+      expect(afterComplex.im).toBe(9);
+    });
+    it("should set the result of multiplying the specified value by a complex (test with a string value)", () => {
+      // (2 + 3i) * (2 + 4i) = -8 + 14i
+      const beforeComplex = new Complex(2, 3);
+      const afterComplex = beforeComplex.setMultiply("2+4i");
+      expect(afterComplex.re).toBe(-8);
+      expect(afterComplex.im).toBe(14);
+    });
+  });
+  describe("setDivide", () => {
+    it("should set the result of dividing the specified value by a complex number (test with a numeric value)", () => {
+      // (6 + 9i) / 3 = 2 + 3i
+      const beforeComplex = new Complex(6, 9);
+      const afterComplex = beforeComplex.setDivide(3);
+      expect(afterComplex.re).toBe(2);
+      expect(afterComplex.im).toBe(3);
+    });
+    it("should set the result of dividing the specified value by a complex (test with a string value)", () => {
+      // (6 + 9i) / (2 - 4i) = -1.2 + 2.1i
+      const beforeComplex = new Complex(6, 9);
+      const afterComplex = beforeComplex.setDivide("2-4i");
+      expect(afterComplex.re).toBeCloseTo(-1.2);
+      expect(afterComplex.im).toBeCloseTo(2.1);
     });
   });
 });

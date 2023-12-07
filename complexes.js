@@ -116,14 +116,14 @@ module.exports = (function () {
     return Math.atan2(this.im, this.re);
   };
 
-  // Get the conjugate of a complex number.
-  Complex.prototype.getConjugate = function () {
-    return new Complex(this.re, -this.im);
+  // Set the conjugate of a complex number.
+  Complex.prototype.setConjugate = function () {
+    return this.setRectCoords(this.re, -this.im);
   };
 
-  // Get the negation of a complex number.
-  Complex.prototype.getNegate = function () {
-    return new Complex(-this.re, -this.im);
+  // Set the negation of a complex number.
+  Complex.prototype.setNegate = function () {
+    return this.setRectCoords(-this.re, -this.im);
   };
 
   // Modification of the current instance is prohibited and a new instance is always returned if one is needed.
@@ -136,6 +136,25 @@ module.exports = (function () {
       Object.defineProperty(this, "im", { writable: false, value: this.im });
     }
     return this;
+  };
+
+  // Set the result of multiplying the specified value by a complex number.
+  Complex.prototype.setMultiply = function (value) {
+    const cpx = this.setFromValue(value);
+    return this.setRectCoords(
+      this.re * cpx.re - this.im * cpx.im,
+      this.im * cpx.re + this.re * cpx.im
+    );
+  };
+
+  // Set the result of dividing the specified value by a complex number.
+  Complex.prototype.setDivide = function (value) {
+    const cpx = this.setFromValue(value);
+    const div = Math.pow(cpx.re, 2) + Math.pow(cpx.im, 2);
+    return this.setRectCoords(
+      (this.re * cpx.re + this.im * cpx.im) / div,
+      (this.im * cpx.re - this.re * cpx.im) / div
+    );
   };
 
   return Complex;

@@ -166,7 +166,7 @@ module.exports = (function () {
   // Set the result of subtract the specified value by a complex number.
   Complex.prototype.setSubtract = function (value) {
     const cpx = this.setFromValue(value);
-    return this.setRectCoords(this.re + cpx.re, this.im + cpx.im);
+    return this.setRectCoords(this.re - cpx.re, this.im - cpx.im);
   };
 
   return Complex;

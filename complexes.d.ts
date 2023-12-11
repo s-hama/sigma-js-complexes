@@ -18,6 +18,8 @@ declare module "@sigma-js/complexes" {
     finalize(): this;
     setMultiply(value: number | string | Complex): this;
     setDivide(value: number | string | Complex): this;
+    setAdd(value: number | string | Complex): this;
+    setSubtract(value: number | string | Complex): this;
   }
   export = Complex;
 }

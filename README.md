@@ -177,6 +177,44 @@ console.log(afterComplex.re); // Output: -2.1
 console.log(afterComplex.im); // Output: 2.1
 ```
 
+### Call example: setAdd
+
+```js
+// You can set the result of adding the specified value by a complex number.
+// When specified numerically
+const beforeComplex = new Complex(2, 3);
+const afterComplex = beforeComplex.setAdd(3);
+// 2 + 3i + 3 = 5 + 3i
+console.log(afterComplex.re); // Output: 5
+console.log(afterComplex.im); // Output: 3
+
+// When specified as a string
+const beforeComplex = new Complex(2, 3);
+const afterComplex = beforeComplex.setAdd("2+4i");
+// 2 + 3i + 2 + 4i = 4 + 7i
+console.log(afterComplex.re); // Output: 4
+console.log(afterComplex.im); // Output: 7
+```
+
+### Call example: setSubtract
+
+```js
+// You can set the result of subtracting the specified value by a complex number.
+// When specified numerically
+const beforeComplex = new Complex(6, 9);
+const afterComplex = beforeComplex.setSubtract(3);
+// 2 + 3i - 3 = -1 + 3i
+console.log(afterComplex.re); // Output: -1
+console.log(afterComplex.im); // Output: 3
+
+// When specified as a string
+const beforeComplex = new Complex(6, 9);
+const afterComplex = beforeComplex.setSubtract("2-4i");
+// 2 + 3i - (2 + 4i) = 0 - 1i
+console.log(afterComplex.re); // Output: 0
+console.log(afterComplex.im); // Output: -1
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

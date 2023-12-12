@@ -226,4 +226,36 @@ describe("Complex functions", () => {
       expect(afterComplex.im).toBeCloseTo(2.1);
     });
   });
+  describe("setAdd", () => {
+    it("should set the result of adding the specified value by a complex (test with a numeric value)", () => {
+      // 2 + 3i + 3 = 5 + 3i
+      const beforeComplex = new Complex(2, 3);
+      const afterComplex = beforeComplex.setAdd(3);
+      expect(afterComplex.re).toBe(5);
+      expect(afterComplex.im).toBe(3);
+    });
+    it("should set the result of adding the specified value by a complex (test with a string value)", () => {
+      // 2 + 3i + 2 + 4i = 4 + 7i
+      const beforeComplex = new Complex(2, 3);
+      const afterComplex = beforeComplex.setAdd("2+4i");
+      expect(afterComplex.re).toBe(4);
+      expect(afterComplex.im).toBe(7);
+    });
+  });
+  describe("setSubtract", () => {
+    it("should set the result of subtracting the specified value by a complex (test with a numeric value)", () => {
+      // 2 + 3i - 3 = -1 + 3i
+      const beforeComplex = new Complex(2, 3);
+      const afterComplex = beforeComplex.setSubtract(3);
+      expect(afterComplex.re).toBe(-1);
+      expect(afterComplex.im).toBe(3);
+    });
+    it("should set the result of subtracting the specified value by a complex (test with a string value)", () => {
+      // 2 + 3i - (2 + 4i) = 0 - 1i
+      const beforeComplex = new Complex(2, 3);
+      const afterComplex = beforeComplex.setSubtract("2+4i");
+      expect(afterComplex.re).toBe(0);
+      expect(afterComplex.im).toBe(-1);
+    });
+  });
 });

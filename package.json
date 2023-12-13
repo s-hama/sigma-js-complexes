@@ -1,5 +1,5 @@
 {
-  "name": "sigma-js-complexes",
+  "name": "@sigma-js/complexes",
   "version": "0.0.1",
   "description": "Provides calculation functions related to complex numbers.",
   "keywords": ["math", "complex", "number", "fast", "check", "is"],

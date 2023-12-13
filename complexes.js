@@ -169,5 +169,23 @@ module.exports = (function () {
     return this.setRectCoords(this.re - cpx.re, this.im - cpx.im);
   };
 
+  // Get the clone of a complex number.
+  Complex.prototype.getClone = function () {
+    return new Complex(this.re, this.im);
+  };
+
+  // Get the result of exponentialing the specified value by a complex number.
+  Complex.prototype.getExp = function () {
+    return this.setPolarCoords(Math.exp(this.re), this.im);
+  };
+
+  // Set the logarithm of the specified rotation value to a complex number.
+  Complex.prototype.setLog = function (rotation) {
+    if (!rotation) rotation = 0;
+    return this.setRectCoords(
+      Math.log(this.getMagnitude()),
+      this.getAngle() + rotation * 2 * Math.PI
+    );
+  };
   return Complex;
 })();

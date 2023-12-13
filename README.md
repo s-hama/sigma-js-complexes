@@ -1,6 +1,6 @@
 # ＠sigma-js/complexes [![NPM version](https://img.shields.io/npm/v/@sigma-js/complexes.svg?style=flat)](https://www.npmjs.com/package/@sigma-js/complexes) [![NPM license](https://img.shields.io/github/license/s-hama/sigma-js-complexes.svg)](https://github.com/s-hama/sigma-js-complexes/blob/master/LICENSE) [![NPM monthly downloads](https://img.shields.io/npm/dm/@sigma-js/complexes.svg?style=flat)](https://npmjs.org/package/@sigma-js/complexes) [![NPM total downloads](https://img.shields.io/npm/dt/@sigma-js/complexes.svg?style=flat)](https://npmjs.org/package/@sigma-js/complexes)
 
-**@sigma-js/complexes** is a javascript library that provides trigonometric functions and calculation functions related to trigonometric functions.ｓ
+**@sigma-js/complexes** is a JavaScript library that provides calculation functions related to complex numbers.
 
 ## Install
 
@@ -25,7 +25,7 @@ import { Complex } from "@sigma-js/complexes";
 ### Call example: constructor
 
 ```js
-// You can initialize prime numbers in the constructor
+// You can initialize complex numbers in the constructor
 real = 1;
 imaginary = 2;
 complex = new Complex(real, imaginary);
@@ -175,44 +175,6 @@ const afterComplex = beforeComplex.setDivide("2-4i");
 // (6 + 9i) / (2 - 4i) = -1.2 + 2.1i
 console.log(afterComplex.re); // Output: -2.1
 console.log(afterComplex.im); // Output: 2.1
-```
-
-### Call example: setAdd
-
-```js
-// You can set the result of adding the specified value by a complex number.
-// When specified numerically
-const beforeComplex = new Complex(2, 3);
-const afterComplex = beforeComplex.setAdd(3);
-// 2 + 3i + 3 = 5 + 3i
-console.log(afterComplex.re); // Output: 5
-console.log(afterComplex.im); // Output: 3
-
-// When specified as a string
-const beforeComplex = new Complex(2, 3);
-const afterComplex = beforeComplex.setAdd("2+4i");
-// 2 + 3i + 2 + 4i = 4 + 7i
-console.log(afterComplex.re); // Output: 4
-console.log(afterComplex.im); // Output: 7
-```
-
-### Call example: setSubtract
-
-```js
-// You can set the result of subtracting the specified value by a complex number.
-// When specified numerically
-const beforeComplex = new Complex(6, 9);
-const afterComplex = beforeComplex.setSubtract(3);
-// 2 + 3i - 3 = -1 + 3i
-console.log(afterComplex.re); // Output: -1
-console.log(afterComplex.im); // Output: 3
-
-// When specified as a string
-const beforeComplex = new Complex(6, 9);
-const afterComplex = beforeComplex.setSubtract("2-4i");
-// 2 + 3i - (2 + 4i) = 0 - 1i
-console.log(afterComplex.re); // Output: 0
-console.log(afterComplex.im); // Output: -1
 ```
 
 ## License

@@ -258,4 +258,30 @@ describe("Complex functions", () => {
       expect(afterComplex.im).toBe(-1);
     });
   });
+  describe("getClone", () => {
+    it("should get the clone of a complex number", () => {
+      const beforeComplex = new Complex(3, 4);
+      const afterComplex = beforeComplex.getClone();
+      expect(afterComplex).toEqual(beforeComplex);
+      expect(afterComplex).not.toBe(beforeComplex);
+    });
+  });
+  describe("getExp", () => {
+    it("should get the result of exponentialing the specified value by a complex number", () => {
+      const complex = new Complex();
+      const expResult = complex.getExp();
+      const expected = complex.setPolarCoords(Math.exp(3), 4);
+      expect(expResult.re).toBeCloseTo(expected.re);
+      expect(expResult.im).toBeCloseTo(expected.im);
+    });
+  });
+  describe("setLog", () => {
+    it("should set the logarithm of the specified rotation value to a complex number", () => {
+      const rotation = 1;
+      const logResult = complex.setLog(rotation);
+      const expected = complex.setRectCoords(Math.log(complex.getMagnitude()), complex.getAngle() + rotation * 2 * Math.PI);
+      expect(logResult.re).toBeCloseTo(expected.re);
+      expect(logResult.im).toBeCloseTo(expected.im);
+    });
+  });
 });

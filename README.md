@@ -177,6 +177,36 @@ console.log(afterComplex.re); // Output: -2.1
 console.log(afterComplex.im); // Output: 2.1
 ```
 
+### Call example: getClone
+
+```js
+// You can get the clone of a complex number.
+const complex = new Complex(2, 3);
+const clone = complex.getClone();
+console.log(clone.re); // Output: 2
+console.log(clone.im); // Output: 3
+```
+
+### Call example: getExp
+
+```js
+// You can get the result of exponentialing the specified value by a complex number.
+const complex = new Complex(2, 3);
+const expResult = complex.getExp();
+console.log(expResult.re); // Output: e^2 * cos(3)
+console.log(expResult.im); // Output: e^2 * sin(3)
+```
+
+### Call example: setLog
+
+```js
+// You can set the logarithm of the specified rotation value to a complex number.
+const complex = new Complex(2, 3);
+const rotatedLog = complex.setLog(1);
+console.log(rotatedLog.re); // Output: log(√13)
+console.log(rotatedLog.im); // Output: 1.57079...
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

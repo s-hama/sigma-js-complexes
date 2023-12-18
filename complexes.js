@@ -187,5 +187,23 @@ module.exports = (function () {
       this.getAngle() + rotation * 2 * Math.PI
     );
   };
+
+  // Set the result of powing the specified value by a complex number.
+  Complex.prototype.setPow = function (value) {
+    const cpx = this.setFromValue(value);
+    const result = cpx.setMultiply(this.getClone().setLog()).getExp();
+    return this.setRectCoords(result.re, result.im);
+  };
+
+  // Set the result of square rooting a complex number.
+  Complex.prototype.setSqrt = function () {
+    var abs = this.getMagnitude(),
+      sgn = this.im < 0 ? -1 : 1;
+    return this.setFromValue(
+      Math.sqrt((abs + this.re) / 2),
+      sgn * Math.sqrt((abs - this.re) / 2)
+    );
+  };
+
   return Complex;
 })();

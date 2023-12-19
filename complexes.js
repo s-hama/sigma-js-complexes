@@ -94,10 +94,10 @@ module.exports = (function () {
     if (value instanceof Complex) return new Complex(value.re, value.im);
     if (typeof value === "string") {
       if (value === "i") value = "0+1i";
-      var match = value.match(/(\d+)?([\+\-]\d*)[ij]/);
+      const match = value.match(/(\d+)?([\+\-]\d*)[ij]/);
       if (match) {
-        var re = match[1];
-        var im =
+        const re = match[1];
+        const im =
           match[2] === "+" || match[2] === "-" ? match[2] + "1" : match[2];
         return new Complex(+re || 0, +im || 0);
       }
@@ -197,7 +197,7 @@ module.exports = (function () {
 
   // Set the result of square rooting a complex number.
   Complex.prototype.setSqrt = function () {
-    var abs = this.getMagnitude(),
+    const abs = this.getMagnitude(),
       sgn = this.im < 0 ? -1 : 1;
     return this.setFromValue(
       Math.sqrt((abs + this.re) / 2),

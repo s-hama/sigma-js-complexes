@@ -207,6 +207,27 @@ console.log(rotatedLog.re); // Output: log(√13)
 console.log(rotatedLog.im); // Output: 1.57079...
 ```
 
+### Call example: setPow
+
+```js
+// You can set the result of powing the specified value by a complex number.
+const base = new Complex(2, 3);
+const exponent = new Complex(1, 1);
+const powResult = base.setPow(exponent);
+console.log(powResult.re); // Output: e^(2 - 3)
+console.log(powResult.im); // Output: e^(2 - 3)
+```
+
+### Call example: setSqrt
+
+```js
+// You can set the result of square rooting a complex number.
+const complex = new Complex(2, 3);
+const sqrtResult = complex.setSqrt();
+console.log(sqrtResult.re); // Output: √(√13 + 2) / 2
+console.log(sqrtResult.im); // Output: √(√13 - 2) / 2
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

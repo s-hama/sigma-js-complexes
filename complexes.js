@@ -205,5 +205,15 @@ module.exports = (function () {
     );
   };
 
+  // Get the hyperbolic sine of the specified value
+  Complex.prototype.getSinh = function (value) {
+    return (Math.pow(Math.E, value) - Math.pow(Math.E, -value)) / 2;
+  };
+
+  // Get the hyperbolic cosine of the specified value
+  Complex.prototype.getCosh = function (value) {
+    return (Math.pow(Math.E, value) + Math.pow(Math.E, -value)) / 2;
+  };
+
   return Complex;
 })();

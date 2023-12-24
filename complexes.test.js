@@ -284,4 +284,24 @@ describe("Complex functions", () => {
       expect(logResult.im).toBeCloseTo(expected.im);
     });
   });
+  describe("setPow", () => {
+    it("should set the result of powing the specified value by a complex number", () => {
+      const powResult = complex.setPow(new Complex(2, 1));
+      const cpx = complex.getClone();
+      const expected = cpx.setMultiply(cpx.getClone().setLog()).getExp();
+      expect(powResult).toEqual(expected);
+    });
+  });
+  describe("setSqrt", () => {
+    it("should set the result of square rooting a complex number", () => {
+      const sqrtResult = complex.setSqrt();
+      const abs = complex.getMagnitude();
+      const sgn = complex.im < 0 ? -1 : 1;
+      const expected = complex.setFromValue(
+        Math.sqrt((abs + complex.re) / 2),
+        sgn * Math.sqrt((abs - complex.re) / 2)
+      );
+      expect(sqrtResult).toEqual(expected);
+    });
+  });
 });

@@ -23,6 +23,8 @@ declare module "@sigma-js/complexes" {
     getClone(): Complex;
     getExp(): Complex;
     setLog(rotation: number): this;
+    setPow(value: Complex | string | number): this;
+    setSqrt(): this;
   }
   export = Complex;
 }

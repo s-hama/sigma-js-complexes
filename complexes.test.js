@@ -304,4 +304,18 @@ describe("Complex functions", () => {
       expect(sqrtResult).toEqual(expected);
     });
   });
+  describe("getSinh", () => {
+    it('should get the hyperbolic sine of the specified value', () => {
+      const complex = new Complex(2, 3);
+      const sinhResult = complex.getSinh(2);
+      expect(sinhResult).toBeCloseTo(3.6268604078470186);
+    });
+  });
+  describe("getCosh", () => {
+    it('should get the hyperbolic cosine of the specified value', () => {
+      const complex = new Complex(2, 3);
+      const coshResult = complex.getCosh(2);
+      expect(coshResult).toBeCloseTo(3.7621956910836314);
+    });
+  });
 });

@@ -228,6 +228,22 @@ console.log(sqrtResult.re); // Output: √(√13 + 2) / 2
 console.log(sqrtResult.im); // Output: √(√13 - 2) / 2
 ```
 
+```js
+// You can get the hyperbolic sine of the specified value.
+const complex = new Complex(2, 3);
+const sinhResult = complex.getSinh(2);
+console.log(sinhResult); // Output: 3.62686...
+```
+
+### Call example: getCosh
+
+```js
+// You can get the hyperbolic cosine of the specified value.
+const complex = new Complex(2, 3);
+const coshResult = complex.getCosh(2);
+console.log(coshResult); // Output: 3.76219...
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

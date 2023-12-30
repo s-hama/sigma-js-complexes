@@ -25,6 +25,8 @@ declare module "@sigma-js/complexes" {
     setLog(rotation: number): this;
     setPow(value: Complex | string | number): this;
     setSqrt(): this;
+    getSinh(value: number): number;
+    getCosh(value: number): number;
   }
   export = Complex;
 }

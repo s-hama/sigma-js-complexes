@@ -318,4 +318,32 @@ describe("Complex functions", () => {
       expect(coshResult).toBeCloseTo(3.7621956910836314);
     });
   });
+  describe("setSin", () => {
+    it("should set the sine of a complex number", () => {
+      const re = 1, im = 2;
+      const complex = new Complex(re, im);
+      const sinResult = complex.setSin();
+      expect(sinResult.re).toBeCloseTo(Math.sin(re) * complex.getCosh(im));
+      expect(sinResult.im).toBeCloseTo(Math.cos(re) * complex.getSinh(im));
+    });
+  });
+  describe("setCos", () => {
+    it("should set the cosine of a complex number", () => {
+      const re = 2, im = 3;
+      const complex = new Complex(re, im);
+      const cosResult = complex.setCos();
+      expect(cosResult.re).toBeCloseTo(Math.cos(re) * complex.getCosh(im));
+      expect(cosResult.im).toBeCloseTo(Math.sin(re) * complex.getSinh(im) * -1);
+    });
+  });
+  describe("setTan", () => {
+    it("should set the tangent of a complex number test", () => {
+      const re = 3, im = 4;
+      const complex = new Complex(re, im);
+      const tanResult = complex.setTan();
+      const divident = Math.cos(2 * re) + complex.getCosh(2 * im);
+      expect(tanResult.re).toBeCloseTo(Math.sin(2 * re) / divident);
+      expect(tanResult.im).toBeCloseTo(complex.getSinh(2 * im) / divident);
+    });
+  });
 });

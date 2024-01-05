@@ -215,5 +215,36 @@ module.exports = (function () {
     return (Math.pow(Math.E, value) + Math.pow(Math.E, -value)) / 2;
   };
 
+  // Set the sine of a complex number.
+  Complex.prototype.setSin = function () {
+    const re = this.re,
+      im = this.im;
+    return this.setRectCoords(
+      Math.sin(re) * this.getCosh(im),
+      Math.cos(re) * this.getSinh(im)
+    );
+  };
+
+  // Set the cosine of a complex number.
+  Complex.prototype.setCos = function () {
+    const re = this.re,
+      im = this.im;
+    return this.setRectCoords(
+      Math.cos(re) * this.getCosh(im),
+      Math.sin(re) * this.getSinh(im) * -1
+    );
+  };
+
+  // Set the tangent of a complex number.
+  Complex.prototype.setTan = function () {
+    const re = this.re,
+      im = this.im,
+      divident = Math.cos(2 * re) + this.getCosh(2 * im);
+    return this.setRectCoords(
+      Math.sin(2 * re) / divident,
+      this.getSinh(2 * im) / divident
+    );
+  };
+
   return Complex;
 })();

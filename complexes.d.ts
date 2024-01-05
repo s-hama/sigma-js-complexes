@@ -27,6 +27,9 @@ declare module "@sigma-js/complexes" {
     setSqrt(): this;
     getSinh(value: number): number;
     getCosh(value: number): number;
+    setSin(): this;
+    setCos(): this;
+    setTan(): this;
   }
   export = Complex;
 }

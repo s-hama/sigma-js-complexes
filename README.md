@@ -244,6 +244,37 @@ const coshResult = complex.getCosh(2);
 console.log(coshResult); // Output: 3.76219...
 ```
 
+```js
+// You can set the sine of a complex number.
+const re = 1, im = 2;
+const complex = new Complex(re, im);
+const sinResult = complex.setSin();
+console.log(sinResult.re); // 3.16577...
+console.log(sinResult.im); // 1.95960...
+```
+
+### Call example: setCos
+
+```js
+// You can set the cosine of a complex number.
+const re = 2, im = 3;
+const complex = new Complex(re, im);
+const cosResult = complex.setCos();
+console.log(cosResult.re); // -4.18962...
+console.log(cosResult.im); // -9.10922...
+```
+
+### Call example: setTan
+
+```js
+// You can set the tangent of a complex number.
+const re = 3, im = 4;
+const complex = new Complex(re, im);
+const tanResult = complex.setTan();
+console.log(tanResult.re); // -0.00018...
+console.log(tanResult.im); // 0.99935...
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

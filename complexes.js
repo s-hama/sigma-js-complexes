@@ -246,5 +246,36 @@ module.exports = (function () {
     );
   };
 
+  // Set the hyperbolic sine of a complex number.
+  Complex.prototype.setSinh = function () {
+    const re = this.re,
+      im = this.im;
+    return this.setRectCoords(
+      this.getSinh(re) * Math.cos(im),
+      this.getCosh(re) * Math.sin(im)
+    );
+  };
+
+  // Set the hyperbolic cosine of a complex number.
+  Complex.prototype.setCosh = function () {
+    const re = this.re,
+      im = this.im;
+    return this.setRectCoords(
+      this.getCosh(re) * Math.cos(im),
+      this.getSinh(re) * Math.sin(im)
+    );
+  };
+
+  // Set the hyperbolic tangent of a complex number.
+  Complex.prototype.setTanh = function () {
+    const re = this.re,
+      im = this.im,
+      divident = this.getCosh(2 * re) + Math.cos(2 * im);
+    return this.setRectCoords(
+      this.getSinh(2 * re) / divident,
+      Math.sin(2 * im) / divident
+    );
+  };
+
   return Complex;
 })();

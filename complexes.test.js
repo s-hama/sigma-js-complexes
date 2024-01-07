@@ -346,4 +346,32 @@ describe("Complex functions", () => {
       expect(tanResult.im).toBeCloseTo(complex.getSinh(2 * im) / divident);
     });
   });
+  describe("setSinh", () => {
+    it("should set the hyperbolic sine of a complex number", () => {
+      const re = 1, im = 2;
+      const complex = new Complex(re, im);
+      const sinResult = complex.setSinh();
+      expect(sinResult.re).toBeCloseTo(complex.getSinh(re) * Math.cos(im));
+      expect(sinResult.im).toBeCloseTo(complex.getCosh(re) * Math.sin(im));
+    });
+  });
+  describe("setCosh", () => {
+    it("should set the hyperbolic cosine of a complex number", () => {
+      const re = 2, im = 3;
+      const complex = new Complex(re, im);
+      const cosResult = complex.setCosh();
+      expect(cosResult.re).toBeCloseTo(complex.getCosh(re) * Math.cos(im));
+      expect(cosResult.im).toBeCloseTo(complex.getSinh(re) * Math.sin(im));
+    });
+  });
+  describe("setTanh", () => {
+    it("should set the hyperbolic tangent of a complex number test", () => {
+      const re = 3, im = 4;
+      const complex = new Complex(re, im);
+      const tanResult = complex.setTanh();
+      const divident = complex.getCosh(2 * re) + Math.cos(2 * im);
+      expect(tanResult.re).toBeCloseTo(complex.getSinh(2 * re) / divident);
+      expect(tanResult.im).toBeCloseTo(Math.sin(2 * im) / divident);
+    });
+  });
 });

@@ -275,6 +275,39 @@ console.log(tanResult.re); // -0.00018...
 console.log(tanResult.im); // 0.99935...
 ```
 
+### Call example: setSinh
+
+```js
+// You can set the hyperbolic sine of a complex number.
+const re = 1, im = 2;
+const complex = new Complex(re, im);
+const sinResult = complex.setSinh();
+console.log(sinResult.re); // -0.48905...
+console.log(sinResult.im); // 1.40311...
+```
+
+### Call example: setCosh
+
+```js
+// You can set the hyperbolic cosine of a complex number.
+const re = 2, im = 3;
+const complex = new Complex(re, im);
+const cosResult = complex.setCosh();
+console.log(cosResult.re); // -3.72454...
+console.log(cosResult.im); // 0.51182...
+```
+
+### Call example: setTanh
+
+```js
+// You can set the hyperbolic tangent of a complex number.
+const re = 3, im = 4;
+const complex = new Complex(re, im);
+const tanResult = complex.setTanh();
+console.log(tanResult.re); // 1.00070...
+console.log(tanResult.im); // 0.00490...
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

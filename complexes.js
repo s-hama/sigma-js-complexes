@@ -277,5 +277,20 @@ module.exports = (function () {
     );
   };
 
+  // Get a complex number as a string.
+  Complex.prototype.getString = function () {
+    var ret = "",
+      a = this.re,
+      b = this.im;
+    if (a) ret += a;
+    if ((a && b) || b < 0) ret += b < 0 ? "-" : "+";
+    if (b) {
+      var absIm = Math.abs(b);
+      if (absIm != 1) ret += absIm;
+      ret += "i";
+    }
+    return ret || "0";
+  };
+
   return Complex;
 })();

@@ -374,4 +374,26 @@ describe("Complex functions", () => {
       expect(tanResult.im).toBeCloseTo(Math.sin(2 * im) / divident);
     });
   });
+  describe('getString', () => {
+    it('should return the correct string representation in rectangular form', () => {
+      const complex = new Complex(3, -4);
+      const result = complex.getString();
+      expect(result).toBe('3-4i');
+    });
+    it('should return "0" for zero complex number', () => {
+      const complex = new Complex(0, 0);
+      const result = complex.getString();
+      expect(result).toBe('0');
+    });
+    it('should handle positive real and imaginary parts correctly', () => {
+      const complex = new Complex(2, 5);
+      const result = complex.getString();
+      expect(result).toBe('2+5i');
+    });
+    it('should handle negative real and imaginary parts correctly', () => {
+      const complex = new Complex(-3, -7);
+      const result = complex.getString();
+      expect(result).toBe('-3-7i');
+    });
+  });
 });

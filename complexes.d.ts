@@ -33,6 +33,7 @@ declare module "@sigma-js/complexes" {
     setSinh(): this;
     setCosh(): this;
     setTanh(): this;
+    getString(): string;
   }
   export = Complex;
 }

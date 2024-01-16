@@ -308,6 +308,8 @@ console.log(tanResult.re); // 1.00070...
 console.log(tanResult.im); // 0.00490...
 ```
 
+### Call example: getString
+
 ```js
 // You can get complex numbers as strings.
 const complex = new Complex(3, -4);

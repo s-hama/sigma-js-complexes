@@ -292,5 +292,10 @@ module.exports = (function () {
     return ret || "0";
   };
 
+  // Get a complex number as a string in polar coordinate format.
+  Complex.prototype.getStringPolarCoords = function () {
+    return this.getMagnitude() + " " + this.getAngle();
+  };
+
   return Complex;
 })();

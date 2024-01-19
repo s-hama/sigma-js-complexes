@@ -396,4 +396,26 @@ describe("Complex functions", () => {
       expect(result).toBe('-3-7i');
     });
   });
+  describe('getStringPolarCoords', () => {
+    test('should return "0 0" for complex number with default values', () => {
+      const complex = new Complex();
+      const result = complex.getStringPolarCoords();
+      expect(result).toBe('0 0');
+    });
+    test('should return correct polar coordinates for positive real and imaginary values', () => {
+      const complex = new Complex(3, 4);
+      const result = complex.getStringPolarCoords();
+      expect(result).toBe('5 0.9272952180016122');
+    });
+    test('should return correct polar coordinates for negative real and imaginary values', () => {
+      const complex = new Complex(-2, -2);
+      const result = complex.getStringPolarCoords();
+      expect(result).toBe('2.8284271247461903 -2.356194490192345');
+    });
+    test('should return correct polar coordinates for zero imaginary value', () => {
+      const complex = new Complex(2, 0);
+      const result = complex.getStringPolarCoords();
+      expect(result).toBe('2 0');
+    });
+  });
 });

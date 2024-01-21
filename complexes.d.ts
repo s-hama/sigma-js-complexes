@@ -34,6 +34,7 @@ declare module "@sigma-js/complexes" {
     setCosh(): this;
     setTanh(): this;
     getString(): string;
+    getStringPolarCoords(): string;
   }
   export = Complex;
 }

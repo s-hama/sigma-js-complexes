@@ -317,6 +317,13 @@ const result = complex.getString();
 console.log(result); // Output: 3-4i
 ```
 
+```js
+// You can get a complex number as a string in polar coordinate format
+const complex = new Complex(3, 4);
+const result = complex.getStringPolarCoords();
+console.log(result); // Output: 5 0.9272952180016122
+```
+
 ## License
 
 Copyright (c) 2023, [s-hama](https://github.com/s-hama).

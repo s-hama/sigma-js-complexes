@@ -297,5 +297,11 @@ module.exports = (function () {
     return this.getMagnitude() + " " + this.getAngle();
   };
 
+  // Get the result of determining whether the specified complex number and the current complex number match.
+  Complex.prototype.getEquals = function (value) {
+    const cpx = this.setFromValue(value);
+    return cpx.re === this.re && cpx.im === this.im;
+  };
+
   return Complex;
 })();

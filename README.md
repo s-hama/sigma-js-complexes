@@ -317,11 +317,23 @@ const result = complex.getString();
 console.log(result); // Output: 3-4i
 ```
 
+### Call example: getStringPolarCoords
+
 ```js
 // You can get a complex number as a string in polar coordinate format
 const complex = new Complex(3, 4);
 const result = complex.getStringPolarCoords();
 console.log(result); // Output: 5 0.9272952180016122
+```
+
+### Call example: getEquals
+
+```js
+// You can obtain the result of determining whether the specified complex number and the current complex number match.
+const complex1 = new Complex(2, 5);
+const complex2 = new Complex(1, 5);
+const result = complex1.getEquals(complex2);
+console.log(result); // Output: false
 ```
 
 ## License

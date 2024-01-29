@@ -418,4 +418,18 @@ describe("Complex functions", () => {
       expect(result).toBe('2 0');
     });
   });
+  describe('getEquals', () => {
+    it('should return true for equal complex numbers', () => {
+      const complex1 = new Complex(2, 5);
+      const complex2 = new Complex(2, 5);
+      const result = complex1.getEquals(complex2);
+      expect(result).toBe(true);
+    });
+    it('should return false for different complex numbers', () => {
+      const complex1 = new Complex(2, 5);
+      const complex2 = new Complex(1, 5);
+      const result = complex1.getEquals(complex2);
+      expect(result).toBe(false);
+    });
+  });
 });

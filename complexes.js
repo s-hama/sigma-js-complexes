@@ -43,7 +43,7 @@ module.exports = (function () {
   };
 
   // Set complex number from rectangular coordinates.
-  Complex.prototype.setRectCoords = function (re, im) {
+  Complex.prototype.rectCoords = function (re, im) {
     if (typeof re !== "number" || typeof im !== "number")
       throw new Error(
         this.getMsg("errNotNumeric", [
@@ -56,41 +56,41 @@ module.exports = (function () {
   };
 
   // Set complex number from polar coordinates.
-  Complex.prototype.setPolarCoords = function (r, phi) {
+  Complex.prototype.polarCoords = function (r, phi) {
     if (typeof r !== "number" || typeof phi !== "number")
       throw new Error(
         this.getMsg("errNotNumeric", [
           "Specified r(radius) value and phi(angle) value",
         ])
       );
-    return this.setRectCoords(r * Math.cos(phi), r * Math.sin(phi));
+    return this.rectCoords(r * Math.cos(phi), r * Math.sin(phi));
   };
 
   // Set complex number with specified precision.
-  Complex.prototype.setPrecision = function (prec) {
+  Complex.prototype.precision = function (prec) {
     if (typeof prec !== "number")
       throw new Error(
         this.getMsg("errNotNumeric", ["Specified precision value"])
       );
-    return this.setRectCoords(
+    return this.rectCoords(
       Number(this.re.toPrecision(prec)),
       Number(this.im.toPrecision(prec))
     );
   };
 
   // Set complex number with specified digits.
-  Complex.prototype.setFixed = function (digs) {
+  Complex.prototype.fixed = function (digs) {
     if (typeof digs !== "number") {
       throw new Error(this.getMsg("errNotNumeric", ["Specified digs value"]));
     }
-    return this.setRectCoords(
+    return this.rectCoords(
       Number(this.re.toFixed(digs)),
       Number(this.im.toFixed(digs))
     );
   };
 
   // Set the complex number according to the specified value.
-  Complex.prototype.setFromValue = function (value) {
+  Complex.prototype.fromValue = function (value) {
     if (value instanceof Complex) return new Complex(value.re, value.im);
     if (typeof value === "string") {
       if (value === "i") value = "0+1i";
@@ -117,18 +117,18 @@ module.exports = (function () {
   };
 
   // Set the conjugate of a complex number.
-  Complex.prototype.setConjugate = function () {
-    return this.setRectCoords(this.re, -this.im);
+  Complex.prototype.conjugate = function () {
+    return this.rectCoords(this.re, -this.im);
   };
 
   // Set the negation of a complex number.
-  Complex.prototype.setNegate = function () {
-    return this.setRectCoords(-this.re, -this.im);
+  Complex.prototype.negate = function () {
+    return this.rectCoords(-this.re, -this.im);
   };
 
   // Modification of the current instance is prohibited and a new instance is always returned if one is needed.
   Complex.prototype.finalize = function () {
-    this.setRectCoords = function (a, b) {
+    this.rectCoords = function (a, b) {
       return new Complex(a, b);
     };
     if (Object.defineProperty) {
@@ -139,34 +139,34 @@ module.exports = (function () {
   };
 
   // Set the result of multiplying the specified value by a complex number.
-  Complex.prototype.setMultiply = function (value) {
-    const cpx = this.setFromValue(value);
-    return this.setRectCoords(
+  Complex.prototype.multiply = function (value) {
+    const cpx = this.fromValue(value);
+    return this.rectCoords(
       this.re * cpx.re - this.im * cpx.im,
       this.im * cpx.re + this.re * cpx.im
     );
   };
 
   // Set the result of dividing the specified value by a complex number.
-  Complex.prototype.setDivide = function (value) {
-    const cpx = this.setFromValue(value);
+  Complex.prototype.divide = function (value) {
+    const cpx = this.fromValue(value);
     const div = Math.pow(cpx.re, 2) + Math.pow(cpx.im, 2);
-    return this.setRectCoords(
+    return this.rectCoords(
       (this.re * cpx.re + this.im * cpx.im) / div,
       (this.im * cpx.re - this.re * cpx.im) / div
     );
   };
 
   // Set the result of add the specified value by a complex number.
-  Complex.prototype.setAdd = function (value) {
-    const cpx = this.setFromValue(value);
-    return this.setRectCoords(this.re + cpx.re, this.im + cpx.im);
+  Complex.prototype.add = function (value) {
+    const cpx = this.fromValue(value);
+    return this.rectCoords(this.re + cpx.re, this.im + cpx.im);
   };
 
   // Set the result of subtract the specified value by a complex number.
-  Complex.prototype.setSubtract = function (value) {
-    const cpx = this.setFromValue(value);
-    return this.setRectCoords(this.re - cpx.re, this.im - cpx.im);
+  Complex.prototype.subtract = function (value) {
+    const cpx = this.fromValue(value);
+    return this.rectCoords(this.re - cpx.re, this.im - cpx.im);
   };
 
   // Get the clone of a complex number.
@@ -175,31 +175,31 @@ module.exports = (function () {
   };
 
   // Get the result of exponentialing the specified value by a complex number.
-  Complex.prototype.getExp = function () {
-    return this.setPolarCoords(Math.exp(this.re), this.im);
+  Complex.prototype.exp = function () {
+    return this.polarCoords(Math.exp(this.re), this.im);
   };
 
   // Set the logarithm of the specified rotation value to a complex number.
-  Complex.prototype.setLog = function (rotation) {
+  Complex.prototype.log = function (rotation) {
     if (!rotation) rotation = 0;
-    return this.setRectCoords(
+    return this.rectCoords(
       Math.log(this.getMagnitude()),
       this.getAngle() + rotation * 2 * Math.PI
     );
   };
 
   // Set the result of powing the specified value by a complex number.
-  Complex.prototype.setPow = function (value) {
-    const cpx = this.setFromValue(value);
-    const result = cpx.setMultiply(this.getClone().setLog()).getExp();
-    return this.setRectCoords(result.re, result.im);
+  Complex.prototype.pow = function (value) {
+    const cpx = this.fromValue(value);
+    const result = cpx.multiply(this.getClone().log()).exp();
+    return this.rectCoords(result.re, result.im);
   };
 
   // Set the result of square rooting a complex number.
-  Complex.prototype.setSqrt = function () {
+  Complex.prototype.sqrt = function () {
     const abs = this.getMagnitude(),
       sgn = this.im < 0 ? -1 : 1;
-    return this.setFromValue(
+    return this.fromValue(
       Math.sqrt((abs + this.re) / 2),
       sgn * Math.sqrt((abs - this.re) / 2)
     );
@@ -216,62 +216,62 @@ module.exports = (function () {
   };
 
   // Set the sine of a complex number.
-  Complex.prototype.setSin = function () {
+  Complex.prototype.sin = function () {
     const re = this.re,
       im = this.im;
-    return this.setRectCoords(
+    return this.rectCoords(
       Math.sin(re) * this.getCosh(im),
       Math.cos(re) * this.getSinh(im)
     );
   };
 
   // Set the cosine of a complex number.
-  Complex.prototype.setCos = function () {
+  Complex.prototype.cos = function () {
     const re = this.re,
       im = this.im;
-    return this.setRectCoords(
+    return this.rectCoords(
       Math.cos(re) * this.getCosh(im),
       Math.sin(re) * this.getSinh(im) * -1
     );
   };
 
   // Set the tangent of a complex number.
-  Complex.prototype.setTan = function () {
+  Complex.prototype.tan = function () {
     const re = this.re,
       im = this.im,
       divident = Math.cos(2 * re) + this.getCosh(2 * im);
-    return this.setRectCoords(
+    return this.rectCoords(
       Math.sin(2 * re) / divident,
       this.getSinh(2 * im) / divident
     );
   };
 
   // Set the hyperbolic sine of a complex number.
-  Complex.prototype.setSinh = function () {
+  Complex.prototype.sinh = function () {
     const re = this.re,
       im = this.im;
-    return this.setRectCoords(
+    return this.rectCoords(
       this.getSinh(re) * Math.cos(im),
       this.getCosh(re) * Math.sin(im)
     );
   };
 
   // Set the hyperbolic cosine of a complex number.
-  Complex.prototype.setCosh = function () {
+  Complex.prototype.cosh = function () {
     const re = this.re,
       im = this.im;
-    return this.setRectCoords(
+    return this.rectCoords(
       this.getCosh(re) * Math.cos(im),
       this.getSinh(re) * Math.sin(im)
     );
   };
 
   // Set the hyperbolic tangent of a complex number.
-  Complex.prototype.setTanh = function () {
+  Complex.prototype.tanh = function () {
     const re = this.re,
       im = this.im,
       divident = this.getCosh(2 * re) + Math.cos(2 * im);
-    return this.setRectCoords(
+    return this.rectCoords(
       this.getSinh(2 * re) / divident,
       Math.sin(2 * im) / divident
     );
@@ -299,7 +299,7 @@ module.exports = (function () {
 
   // Get the result of determining whether the specified complex number and the current complex number match.
   Complex.prototype.getEquals = function (value) {
-    const cpx = this.setFromValue(value);
+    const cpx = this.fromValue(value);
     return cpx.re === this.re && cpx.im === this.im;
   };
 

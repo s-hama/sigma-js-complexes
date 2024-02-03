@@ -33,57 +33,57 @@ console.log(complex.re); // Output: 1
 console.log(complex.im); // Output: 2
 ```
 
-### Call example: setRectCoords
+### Call example: rectCoords
 
 ```js
 // You can complex numbers can be set from rectangular coordinates.
 complex = new Complex();
-complex.setRectCoords(3, 4);
+complex.rectCoords(3, 4);
 console.log(complex.re); // Output: 3
 console.log(complex.im); // Output: 4
 ```
 
-### Call example: setPolarCoords
+### Call example: polarCoords
 
 ```js
 // You can complex numbers can be set from polar coordinates.
 complex = new Complex();
-complex.setPolarCoords(1, Math.PI / 4);
+complex.polarCoords(1, Math.PI / 4);
 console.log(complex.re); // Output: Math.sqrt(2) / 2
 console.log(complex.im); // Output: Math.sqrt(2) / 2
 ```
 
-### Call example: setPrecision
+### Call example: precision
 
 ```js
 // You can set complex numbers with specified precision.
 complex = new Complex();
-complex.setPrecision(1, Math.PI / 4);
+complex.precision(1, Math.PI / 4);
 console.log(complex.re); // Output: Math.sqrt(2) / 2
 console.log(complex.im); // Output: Math.sqrt(2) / 2
 ```
 
-### Call example: setFixed
+### Call example: fixed
 
 ```js
 // You can set complex numbers with specified digits.
 complex = new Complex(3.141592653589793, 2.718281828459045);
-complex.setFixed(4);
+complex.fixed(4);
 console.log(complex.re); // Output: 3.1416
 console.log(complex.im); // Output: 2.7183
 ```
 
-### Call example: setFromValue
+### Call example: fromValue
 
 ```js
 // You can get the complex number according to the specified value.
 const inputComplex = new Complex(2, 4);
 const beforeComplex = new Complex();
-let retComplex = beforeComplex.setFromValue(inputComplex);
+let retComplex = beforeComplex.fromValue(inputComplex);
 retComplex.re; // Output: 2
 retComplex.im; // Output: 4
 
-retComplex = beforeComplex.setFromValue("3+2i");
+retComplex = beforeComplex.fromValue("3+2i");
 retComplex.re; // Output: 3
 retComplex.im; // Output: 2
 ```
@@ -104,22 +104,22 @@ complex.getMagnitude(); // Output: 5
 complex.getAngle(); // Output: 0.92729...
 ```
 
-### Call example: setConjugate
+### Call example: conjugate
 
 ```js
 // You can get the conjugate value of a complex number.
 const complex = new Complex(3, 4);
-const conjugate = complex.setConjugate();
+const conjugate = complex.conjugate();
 conjugate.re; // Output: 3
 conjugate.im; // Output: -4
 ```
 
-### Call example: setNegate
+### Call example: negate
 
 ```js
 // You can get the negation of a complex number.
 const complex = new Complex(3, 4);
-const negate = complex.setNegate();
+const negate = complex.negate();
 conjugate.re; // Output: -3
 conjugate.im; // Output: -4
 ```
@@ -130,7 +130,7 @@ conjugate.im; // Output: -4
 // You can modification of the current instance is prohibited and a new instance is always returned if one is needed.
 const complex = new Complex(2, 3);
 const finalizedComplex = complex.finalize();
-const newComplex = finalizedComplex.setRectCoords(4, 5);
+const newComplex = finalizedComplex.rectCoords(4, 5);
 console.log(newComplex); // Output: Complex { re: 4, im: 5 }
 
 const reDescriptor = Object.getOwnPropertyDescriptor(finalizedComplex, "re");
@@ -139,39 +139,39 @@ console.log(reDescriptor.writable); // Output: false
 console.log(imDescriptor.writable); // Output: false
 ```
 
-### Call example: setMultiply
+### Call example: multiply
 
 ```js
 // You can set the result of multiplying the specified value by a complex number.
 // When specified numerically
 const beforeComplex = new Complex(2, 3);
-const afterComplex = beforeComplex.setMultiply(3);
+const afterComplex = beforeComplex.multiply(3);
 // (2 + 3i) * 3 = 6 + 9i
 console.log(afterComplex.re); // Output: 6
 console.log(afterComplex.im); // Output: 9
 
 // When specified as a string
 const beforeComplex = new Complex(2, 3);
-const afterComplex = beforeComplex.setMultiply("2+4i");
+const afterComplex = beforeComplex.multiply("2+4i");
 // (2 + 3i) * (2 + 4i) = -8 + 14i
 console.log(afterComplex.re); // Output: -8
 console.log(afterComplex.im); // Output: 14
 ```
 
-### Call example: setDivide
+### Call example: divide
 
 ```js
 // You can set the result of dividing the specified value by a complex number.
 // When specified numerically
 const beforeComplex = new Complex(6, 9);
-const afterComplex = beforeComplex.setDivide(3);
+const afterComplex = beforeComplex.divide(3);
 // (6 + 9i) / 3 = 2 + 3i
 console.log(afterComplex.re); // Output: 2
 console.log(afterComplex.im); // Output: 3
 
 // When specified as a string
 const beforeComplex = new Complex(6, 9);
-const afterComplex = beforeComplex.setDivide("2-4i");
+const afterComplex = beforeComplex.divide("2-4i");
 // (6 + 9i) / (2 - 4i) = -1.2 + 2.1i
 console.log(afterComplex.re); // Output: -2.1
 console.log(afterComplex.im); // Output: 2.1
@@ -187,43 +187,43 @@ console.log(clone.re); // Output: 2
 console.log(clone.im); // Output: 3
 ```
 
-### Call example: getExp
+### Call example: exp
 
 ```js
 // You can get the result of exponentialing the specified value by a complex number.
 const complex = new Complex(2, 3);
-const expResult = complex.getExp();
+const expResult = complex.exp();
 console.log(expResult.re); // Output: e^2 * cos(3)
 console.log(expResult.im); // Output: e^2 * sin(3)
 ```
 
-### Call example: setLog
+### Call example: log
 
 ```js
 // You can set the logarithm of the specified rotation value to a complex number.
 const complex = new Complex(2, 3);
-const rotatedLog = complex.setLog(1);
+const rotatedLog = complex.log(1);
 console.log(rotatedLog.re); // Output: log(√13)
 console.log(rotatedLog.im); // Output: 1.57079...
 ```
 
-### Call example: setPow
+### Call example: pow
 
 ```js
 // You can set the result of powing the specified value by a complex number.
 const base = new Complex(2, 3);
 const exponent = new Complex(1, 1);
-const powResult = base.setPow(exponent);
+const powResult = base.pow(exponent);
 console.log(powResult.re); // Output: e^(2 - 3)
 console.log(powResult.im); // Output: e^(2 - 3)
 ```
 
-### Call example: setSqrt
+### Call example: sqrt
 
 ```js
 // You can set the result of square rooting a complex number.
 const complex = new Complex(2, 3);
-const sqrtResult = complex.setSqrt();
+const sqrtResult = complex.sqrt();
 console.log(sqrtResult.re); // Output: √(√13 + 2) / 2
 console.log(sqrtResult.im); // Output: √(√13 - 2) / 2
 ```
@@ -248,62 +248,62 @@ console.log(coshResult); // Output: 3.76219...
 // You can set the sine of a complex number.
 const re = 1, im = 2;
 const complex = new Complex(re, im);
-const sinResult = complex.setSin();
+const sinResult = complex.sin();
 console.log(sinResult.re); // 3.16577...
 console.log(sinResult.im); // 1.95960...
 ```
 
-### Call example: setCos
+### Call example: cos
 
 ```js
 // You can set the cosine of a complex number.
 const re = 2, im = 3;
 const complex = new Complex(re, im);
-const cosResult = complex.setCos();
+const cosResult = complex.cos();
 console.log(cosResult.re); // -4.18962...
 console.log(cosResult.im); // -9.10922...
 ```
 
-### Call example: setTan
+### Call example: tan
 
 ```js
 // You can set the tangent of a complex number.
 const re = 3, im = 4;
 const complex = new Complex(re, im);
-const tanResult = complex.setTan();
+const tanResult = complex.tan();
 console.log(tanResult.re); // -0.00018...
 console.log(tanResult.im); // 0.99935...
 ```
 
-### Call example: setSinh
+### Call example: sinh
 
 ```js
 // You can set the hyperbolic sine of a complex number.
 const re = 1, im = 2;
 const complex = new Complex(re, im);
-const sinResult = complex.setSinh();
+const sinResult = complex.sinh();
 console.log(sinResult.re); // -0.48905...
 console.log(sinResult.im); // 1.40311...
 ```
 
-### Call example: setCosh
+### Call example: cosh
 
 ```js
 // You can set the hyperbolic cosine of a complex number.
 const re = 2, im = 3;
 const complex = new Complex(re, im);
-const cosResult = complex.setCosh();
+const cosResult = complex.cosh();
 console.log(cosResult.re); // -3.72454...
 console.log(cosResult.im); // 0.51182...
 ```
 
-### Call example: setTanh
+### Call example: tanh
 
 ```js
 // You can set the hyperbolic tangent of a complex number.
 const re = 3, im = 4;
 const complex = new Complex(re, im);
-const tanResult = complex.setTanh();
+const tanResult = complex.tanh();
 console.log(tanResult.re); // 1.00070...
 console.log(tanResult.im); // 0.00490...
 ```
